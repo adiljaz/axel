@@ -1,0 +1,22 @@
+import 'package:equatable/equatable.dart';
+import '../../../domain/entities/app_settings.dart';
+
+abstract class SettingsEvent extends Equatable {
+  const SettingsEvent();
+
+  @override
+  List<Object?> get props => [];
+}
+
+class ClearCacheEvent extends SettingsEvent {}
+
+class LoadSettingsEvent extends SettingsEvent {}
+
+class UpdateSettingsEvent extends SettingsEvent {
+  final AppSettings settings;
+
+  const UpdateSettingsEvent(this.settings);
+
+  @override
+  List<Object?> get props => [settings];
+}
